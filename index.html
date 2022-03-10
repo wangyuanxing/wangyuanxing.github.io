@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wyx的音乐播放器</title>
+    <!-- 引入外部样式 -->
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+    <div class="wrap">
+        <!-- 最大盒子，播放器主体 -->
+        <div class="play_wrap" id="player">
+            <!-- top搜索栏 -->
+            <div class="search_bar">
+                <!-- log -->
+                <img src="images/log.png" alt="">
+                <!-- 歌曲搜索栏 -->
+                <input type="text" autocomplete="none">
+            </div>
+
+            <!-- mid歌曲信息 -->
+            <div class="center_con">
+                <!-- 歌曲列表栏目 -->
+                <div class="song_wrap" ref="song_wrap">
+                    <ul class="song_list">
+                        <li>
+                            <!-- 播放按钮a标签 -->
+                            <a href=""></a>
+                            <!-- 歌曲名b -->
+                            <b> 七里香 </b>
+                            <span>
+                                <!-- 存放mv -->
+                                <i></i>
+                            </span>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                            <b> 花海 </b>
+                            <span>
+                                <i></i>
+                            </span>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                            <b> 搁浅 </b>
+                            <span>
+                                <i></i>
+                            </span>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                            <b> 珊瑚海 </b>
+                            <span>
+                                <i></i>
+                            </span>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                            <b> 以父之名 </b>
+                            <span>
+                                <i></i>
+                            </span>
+                        </li>
+                        <li>
+                            <a href=""></a>
+                            <b> 退后 </b>
+                            <span>
+                                <!-- 存放mv -->
+                                <i></i>
+                            </span>
+                        </li>
+                    </ul>
+                    <!-- 左边界线，图片 -->
+                    <img src="images/left_line.png" class="left_line">
+                </div>
+
+                <!-- 歌曲信息及dj栏 -->
+                <div class="player_con">
+                    <!-- 播放杆，播放时选转，停止后转回去 -->
+                    <img src="images/player_bar.png" class="play_bar">
+                    <!-- 黑胶碟盘 播放时有旋转效果-->
+                    <img src="images/disc.png" class="disc autoRotate" />
+                    <img src="images/cover.png" class="cover " id="autoRotate" />
+                </div>
+
+                <!-- 评论区 -->
+                <div class="comment_wrap">
+                    <div class="title">留言板</div>
+                    <div class="comment_list">
+                        <dl>
+                            <dt>
+                                <img src="images/person1.jpg" alt="">
+                            </dt>
+                            <dd class="name">envyy</dd>
+                            <dd class="detail">窗外的麻雀在电线杆上多嘴 你说这一句很有夏天的感觉 手中的铅笔在纸上来来回回 我用几行字形容你是我的谁 秋刀鱼的滋味猫跟你都想了解 初恋的香味就这样被我们寻回 那温暖的阳光像刚摘的鲜艳草莓 你说你舍不得吃掉这一种感觉 雨下整夜我的爱溢出就像雨水 院子落叶跟我的思念厚厚一叠 几句是非也无法将我的热情冷却 你出现在我诗的每一页~
+
+                            </dd>
+                        </dl>
+                    </div>
+                    <!-- 右边界线,图片 -->
+                    <img src="images/right_line.png" class="right_line">
+                </div>
+
+                <!-- 歌曲播放栏 -->
+                <div class="audio_con">
+                    <audio src="Jay.mp3" controls autoplay loop class="myaudio"></audio>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- JavaScript 点击播放音乐后,音乐开始播放,dj开始旋转 -->
+    <script>
+        let btn = document.querySelector('.play_bar');
+        let animation1 = document.querySelector('.autoRotate');
+        let animation2 = document.querySelector('#autoRotate');
+        let play_bar = document.querySelector('.play_bar')
+        let audio = document.querySelector('audio');
+        audio.addEventListener('play', () => {
+            animation1.style.animationPlayState = 'running';
+            animation2.style.animationPlayState = 'running';
+            play_bar.style.transform = 'rotate(0)';
+        });
+        audio.addEventListener('pause', () => {
+            animation1.style.animationPlayState = 'paused';
+            animation2.style.animationPlayState = 'paused';
+            play_bar.style.transform = 'rotate(-25deg)';
+        })
+    </script>
+
+
+</body>
+
+</html>
